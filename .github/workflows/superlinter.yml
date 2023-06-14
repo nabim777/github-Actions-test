@@ -1,1 +1,27 @@
+#you can skip this
+name: Super-Linter 
 
+#whenever push this action will starts
+on: push 
+
+#jobs are the collection of steps
+jobs:
+  #the first job named as super-lint with having 2 steps
+  super-lint:
+    name: Lint code base
+    #server on which the yml script runs on. we can select any os depending on our project
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        #basically command in linux which basically checkout the code
+        uses: actions/checkout@v2
+      
+      - name: Super-Linter
+        #basically command in linux which basically runs super-linter against your push code
+        uses: github/super-linter@v4.9.5
+        env:
+          # which branch you want to be check
+          DEFAULT_BRANCH: main
+          # template token from github
+          GITHUB_TOKEN: $({ secrets.GITHUB_TOKEN })
