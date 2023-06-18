@@ -26,4 +26,4 @@ jobs:
           # which branch you want to be check
           DEFAULT_BRANCH: main
           # template token from github
-          GITHUB_TOKEN: $({ secrets.GITHUB_TOKEN })
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
